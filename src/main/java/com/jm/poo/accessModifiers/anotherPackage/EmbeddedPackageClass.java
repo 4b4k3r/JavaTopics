@@ -1,18 +1,20 @@
 package com.jm.poo.accessModifiers.anotherPackage;
 
-import com.jm.poo.accessModifiers.UpperClass;
+import com.jm.poo.accessModifiers.OwnerClass;
 
-public class EmbeddedPackageClass extends UpperClass{
+public class EmbeddedPackageClass extends OwnerClass {
+    private static final String PRINT_EMBEDDED_PACKAGE_CLASS = "EmbeddedPackageClass can access to : ['%s', '%s']\n";
+    private static final String PRINT_EMBEDDED_CLASS_OEP = "EmbeddedClassOfEmbeddedPackage can access to : ['%s']\n";
+
     public static void run() {
-        EmbeddedPackageClass upperClass = new EmbeddedPackageClass();
-        System.out.println("Yes, i EmbeddedPackageClass can access to public " + upperClass.publicModifier);
-        System.out.println("Yes, i EmbeddedPackageClass can access to protected " + upperClass.protectedModifier);
+        EmbeddedPackageClass embeddedPackageClass = new EmbeddedPackageClass();
+        System.out.format(PRINT_EMBEDDED_PACKAGE_CLASS, embeddedPackageClass.publicModifier, embeddedPackageClass.protectedModifier);
     }
 
     public static class EmbeddedClassOfEmbeddedPackage {
         public static void run() {
-            UpperClass upperClass = new UpperClass();
-            System.out.println("Yes, i EmbeddedPackageSubClass can access to public " + upperClass.publicModifier);
+            OwnerClass ownerClass = new OwnerClass();
+            System.out.format(PRINT_EMBEDDED_CLASS_OEP, ownerClass.publicModifier);
         }
     }
 }
