@@ -3,6 +3,7 @@ package com.jm.poo.abstractVsInterface.abstractExample;
 public class AbstractImplementation extends AbstractClassOfBike {
 
     public static void main(String[] args) {
+        //set by set mode
         AbstractImplementation car = new AbstractImplementation();
         car.lights = "led";
         car.brakes = "disk";
@@ -11,9 +12,11 @@ public class AbstractImplementation extends AbstractClassOfBike {
         car.name = "car";
         car.printFeatures();
 
+        //Taking default properties
         AbstractImplementation bike = new AbstractImplementation();
         bike.printFeatures();
 
+        //Passing parameters by constructor
         AbstractImplementation trailer = new AbstractImplementation(10, "drum", "aluminum and metal", "warm", "trailer");
         trailer.printFeatures();
     }
